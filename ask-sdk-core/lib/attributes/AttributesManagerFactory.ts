@@ -33,10 +33,10 @@ export class AttributesManagerFactory {
 
         let thisRequestAttributes : {[key : string] : any} = {};
         let thisSessionAttributes : {[key : string] : any} = options.requestEnvelope.session
-                                                           ? options.requestEnvelope.session.attributes
-                                                             ? JSON.parse(JSON.stringify(options.requestEnvelope.session.attributes))
-                                                             : {}
-                                                           : undefined;
+            ? options.requestEnvelope.session.attributes
+                ? JSON.parse(JSON.stringify(options.requestEnvelope.session.attributes))
+                : {}
+            : undefined;
         let thisPersistentAttributes : {[key : string] : any};
         let persistentAttributesSet = false;
 
@@ -53,7 +53,7 @@ export class AttributesManagerFactory {
 
                 return thisSessionAttributes as T;
             },
-            async getPersistentAttributes(useSessionCache : boolean = true, defaultAttributes?: {[key: string]: any}) : Promise<{[key : string] : any}> {
+            async getPersistentAttributes(useSessionCache : boolean = true, defaultAttributes? : {[key : string] : any}) : Promise<{[key : string] : any}> {
                 if (!options.persistenceAdapter) {
                     throw createAskSdkError(
                         'AttributesManager',
@@ -65,7 +65,7 @@ export class AttributesManagerFactory {
                     persistentAttributesSet = true;
                 }
                 if (defaultAttributes && (!thisPersistentAttributes || Object.keys(thisPersistentAttributes).length < 1)) {
-                    thisPersistentAttributes = defaultAttributes
+                    thisPersistentAttributes = defaultAttributes;
                 }
 
                 return thisPersistentAttributes;

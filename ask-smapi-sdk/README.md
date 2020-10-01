@@ -14,7 +14,7 @@ Learn more about SMAPI by reviewing the SMAPI [documentation](https://developer.
 
 1. Create a new security profile for your Amazon Developer account by following the instructions provided [here](https://developer.amazon.com/docs/smapi/ask-cli-command-reference.html#generate-lwa-tokens).
 This will generate `Client ID` and `Client Secret` keys.
-2. Using the ASK CLI, run: `ask util generate-lwa-tokens`. You will be asked to provide the `Client ID` and `Client Secret` keys from the previous step. 
+2. Using the ASK CLI, run: `ask util generate-lwa-tokens --client-id <Client ID> --client-confirmation <Client Secrect>`. Replace the `<Client ID>` and` <Client Secrect>` with the `Client ID` and `Client Secret` keys from the previous step. 
 This will return the following JSON with a `Refresh Token`:
 
 
@@ -44,10 +44,10 @@ Using the `Client ID`, `Client Secret` and `Refresh Token` retrieved in the prev
 ```js
 const Alexa = require('ask-smapi-sdk');
 
-// specify the refreshTokenConfig with clientId, clientSecrect and refreshToken generated in the previous step
+// specify the refreshTokenConfig with clientId, clientSecret and refreshToken generated in the previous step
 const refreshTokenConfig = {
     clientId,
-    clientSecrect, 
+    clientSecret, 
     refreshToken
 }
 const smapiClient = new Alexa.StandardSmapiClientBuilder()
@@ -59,10 +59,10 @@ const smapiClient = new Alexa.StandardSmapiClientBuilder()
 ```ts
 import * as Alexa from 'ask-smapi-sdk';
 
-// specify the refreshTokenConfig with clientId, clientSecrect and refreshToken generated in the previous step
+// specify the refreshTokenConfig with clientId, clientSecret and refreshToken generated in the previous step
 const refreshTokenConfig : Alexa.RefreshTokenConfig = {
     clientId,
-    clientSecrect, 
+    clientSecret, 
     refreshToken
 }
 const smapiClient = new Alexa.StandardSmapiClientBuilder()

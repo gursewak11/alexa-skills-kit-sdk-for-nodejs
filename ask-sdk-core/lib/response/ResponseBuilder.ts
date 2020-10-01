@@ -17,7 +17,7 @@ import {
     Intent,
     interfaces,
     Response,
-    ui,
+    ui
 } from 'ask-sdk-model';
 import AudioItemMetadata = interfaces.audioplayer.AudioItemMetadata;
 import CanFulfillIntent = canfulfill.CanFulfillIntent;
@@ -57,9 +57,9 @@ export interface ResponseBuilder {
      * @returns {ResponseBuilder}
      */
     withStandardCard(cardTitle : string,
-                     cardContent : string,
-                     smallImageUrl? : string,
-                     largeImageUrl? : string) : this;
+        cardContent : string,
+        smallImageUrl? : string,
+        largeImageUrl? : string) : this;
     /**
      * Renders a link account card
      * @returns {ResponseBuilder}
@@ -121,11 +121,11 @@ export interface ResponseBuilder {
      * @returns {ResponseBuilder}
      */
     addAudioPlayerPlayDirective(playBehavior : interfaces.audioplayer.PlayBehavior,
-                                url : string,
-                                token : string,
-                                offsetInMilliseconds : number,
-                                expectedPreviousToken? : string,
-                                audioItemMetadata? : AudioItemMetadata) : this;
+        url : string,
+        token : string,
+        offsetInMilliseconds : number,
+        expectedPreviousToken? : string,
+        audioItemMetadata? : AudioItemMetadata) : this;
     /**
      * Adds an AudioPlayer Stop directive - Stops the current audio Playback
      * @returns {ResponseBuilder}
@@ -182,6 +182,12 @@ export interface ResponseBuilder {
      * @returns {ResponseBuilder}
      */
     addDirective(directive : Directive) : this;
+    /**
+     * Helper method for adding Api response in the response
+     * @param {any} apiResponse
+     * @returns {ResponseBuilder}
+     */
+    withApiResponse(apiResponse : any) : this;
     /**
      * Returns the response object
      * @returns {Response}

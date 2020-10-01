@@ -43,10 +43,10 @@ export {
     ViewportOrientation,
     ViewportProfile,
     ViewportSizeGroup,
-    ViewportSizeGroupOrder,
+    ViewportSizeGroupOrder
 } from './util/ViewportUtils';
 export {
-    escapeXmlCharacters,
+    escapeXmlCharacters
 } from './util/SsmlUtils';
 export {
     getAccountLinkingAccessToken,
@@ -54,17 +54,19 @@ export {
     getDeviceId,
     getUserId,
     getDialogState,
+    getSlotValueV2,
     getIntentName,
     getLocale,
     getRequest,
     getRequestType,
+    getSimpleSlotValues,
     getSlot,
     getSlotValue,
     getSupportedInterfaces,
-    isNewSession,
+    isNewSession
 } from './util/RequestEnvelopeUtils';
 
 export {
     createAskSdkError,
-    createAskSdkUserAgent,
+    createAskSdkUserAgent
 } from 'ask-sdk-runtime';

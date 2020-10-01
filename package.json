@@ -2,17 +2,25 @@
 	"private": true,
 	"scripts": {
 		"lerna": "./node_modules/.bin/lerna",
-		"bootstrap": "npm run lerna -- bootstrap --hoist --nohoist=ts-node",
-		"gulp": "npm run lerna -- exec ./node_modules/.bin/gulp",
-		"tsc": "npm run gulp -- tsc",
-		"tslint": "npm run gulp -- tslint",
-		"test": "npm run gulp -- test",
-		"clean-build": "npm run gulp -- clean",
-		"clean-node_modules": "npm run lerna -- clean",
-		"clean-all": "npm run clean-build && npm run clean-node_modules"
+		"setup": "lerna exec npm install",
+		"bootstrap": "lerna bootstrap --force-local --hoist",
+		"build": "lerna exec npm run build",
+		"test": "lerna exec npm run test",
+		"version": "lerna version --no-git-tag-version --no-push --conventional-commits --yes ---message \"chore(release): publish %s\"",
+		"docs": "rm -rf ./alexa-sdk-node-typedoc && ./node_modules/.bin/typedoc --out alexa-sdk-node-typedoc"
 	},
 	"devDependencies": {
-		"lerna": "^3.16.4"
+		"@commitlint/cli": "^9.1.2",
+		"@commitlint/config-conventional": "^9.1.2",
+		"husky": "^4.2.5",
+		"lerna": "^3.16.4",
+		"typedoc": "^0.17.8",
+		"typescript": "^3.9.5"
+	},
+	"husky": {
+		"hooks": {
+			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+		}
 	},
 	"name": "alexa-skills-kit-sdk-for-nodejs"
 }
